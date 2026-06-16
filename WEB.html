@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ocean Tracking Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#07111f,#0d223d);
+min-height:100vh;
+color:white;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+.hero{
+text-align:center;
+padding:80px 20px 50px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.hero p{
+color:#b7c4d8;
+font-size:1.1rem;
+max-width:700px;
+margin:auto;
+}
+
+.search-box{
+margin-top:35px;
+display:flex;
+justify-content:center;
+}
+
+.search-box input{
+width:550px;
+max-width:95%;
+padding:16px 20px;
+border:none;
+border-radius:14px;
+outline:none;
+font-size:16px;
+}
+
+.section-title{
+margin:60px 0 25px;
+font-size:1.8rem;
+font-weight:600;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.12);
+padding:25px;
+border-radius:18px;
+transition:0.3s;
+cursor:pointer;
+text-align:center;
+}
+
+.card:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.12);
+}
+
+.card a{
+color:white;
+text-decoration:none;
+font-size:18px;
+font-weight:600;
+display:block;
+}
+
+.card span{
+display:block;
+margin-top:8px;
+font-size:13px;
+color:#9fb4d3;
+}
+
+.tools{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:20px;
+margin-bottom:60px;
+}
+
+.tool{
+background:rgba(255,255,255,0.08);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.12);
+}
+
+.tool h3{
+margin-bottom:10px;
+}
+
+.tool p{
+font-size:14px;
+color:#b7c4d8;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#8ea6c7;
+}
+
+.badge{
+display:inline-block;
+background:#00b4ff;
+padding:8px 14px;
+border-radius:30px;
+margin-bottom:15px;
+font-size:13px;
+font-weight:600;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2rem;
+}
+
+.section-title{
+font-size:1.5rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<section class="hero">
+
+<div class="badge">
+🚢 Logistics Directory
+</div>
+
+<h1>Ocean Tracking Hub</h1>
+
+<p>
+Quick access to official tracking portals of major global and regional shipping lines.
+No middlemen. No fake tracking. Direct access to official carrier websites.
+</p>
+
+<div class="search-box">
+<input
+type="text"
+id="searchInput"
+placeholder="Search shipping line..."
+>
+</div>
+
+</section>
+
+<h2 class="section-title">Shipping Lines</h2>
+
+<div class="grid" id="shippingGrid"></div>
+
+<h2 class="section-title">Coming Soon</h2>
+
+<div class="tools">
+
+<div class="tool">
+<h3>📦 Container Prefix Lookup</h3>
+<p>Identify carrier using container prefix.</p>
+</div>
+
+<div class="tool">
+<h3>📐 CBM Calculator</h3>
+<p>Calculate cargo volume instantly.</p>
+</div>
+
+<div class="tool">
+<h3>⚖️ Volumetric Weight Calculator</h3>
+<p>Air & sea freight calculations.</p>
+</div>
+
+<div class="tool">
+<h3>🌍 Incoterms Guide</h3>
+<p>FOB, CIF, EXW and more.</p>
+</div>
+
+<div class="tool">
+<h3>📖 Freight Glossary</h3>
+<p>Shipping terminology explained.</p>
+</div>
+
+<div class="tool">
+<h3>🧮 Container Check Digit Tool</h3>
+<p>Validate container numbers.</p>
+</div>
+
+</div>
+
+<footer>
+© 2026 Ocean Tracking Hub
+</footer>
+
+</div>
+
+<script>
+
+const shippingLines = [
+
+{name:"MSC",url:"https://www.msc.com/en/track-a-shipment"},
+{name:"Maersk",url:"https://www.maersk.com/tracking"},
+{name:"CMA CGM",url:"https://www.cma-cgm.com/ebusiness/tracking"},
+{name:"Hapag-Lloyd",url:"https://www.hapag-lloyd.com"},
+{name:"ONE",url:"https://ecomm.one-line.com"},
+{name:"Evergreen",url:"https://www.evergreen-line.com"},
+{name:"COSCO",url:"https://elines.coscoshipping.com"},
+{name:"OOCL",url:"https://www.oocl.com"},
+{name:"Yang Ming",url:"https://www.yangming.com"},
+{name:"Wan Hai",url:"https://www.wanhai.com"},
+{name:"ZIM",url:"https://www.zim.com/tools/track-a-shipment"},
+{name:"HMM",url:"https://www.hmm21.com"},
+{name:"KMTC",url:"https://www.ekmtc.com/index.html#/main"},
+{name:"ANL",url:"https://www.anl.com.au"},
+{name:"Gold Star Line",url:"https://www.goldstarline.com"},
+{name:"Interasia",url:"https://www.interasia.cc"},
+{name:"Transasia",url:"https://www.transasiashipping.com"},
+{name:"Samudera",url:"https://ssl-cts.samudera.id:3000/"},
+{name:"Tropical Shipping",url:"https://www.tropical.com"},
+{name:"Econship",url:"https://www.econship.net"}
+
+];
+
+const shippingGrid = document.getElementById("shippingGrid");
+
+function renderLines(filter=""){
+
+shippingGrid.innerHTML="";
+
+shippingLines
+.filter(line =>
+line.name.toLowerCase().includes(filter.toLowerCase())
+)
+.forEach(line => {
+
+shippingGrid.innerHTML += `
+<div class="card">
+<a href="${line.url}" target="_blank">
+${line.name}
+</a>
+<span>Open Official Tracking</span>
+</div>
+`;
+
+});
+
+}
+
+renderLines();
+
+document
+.getElementById("searchInput")
+.addEventListener("input",function(){
+
+renderLines(this.value);
+
+});
+
+</script>
+
+</body>
+</html>
