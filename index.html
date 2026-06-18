@@ -3,239 +3,87 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ocean Tracking Hub</title>
-
+<title>Freight Compass</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:linear-gradient(135deg,#07111f,#0d223d);
-min-height:100vh;
-color:white;
-}
-
-.container{
-width:90%;
-max-width:1300px;
-margin:auto;
-}
-
-.hero{
-text-align:center;
-padding:80px 20px 50px;
-}
-
-.hero h1{
-font-size:3rem;
-margin-bottom:15px;
-}
-
-.hero p{
-color:#b7c4d8;
-font-size:1.1rem;
-max-width:700px;
-margin:auto;
-}
-
-.search-box{
-margin-top:35px;
-display:flex;
-justify-content:center;
-}
-
-.search-box input{
-width:550px;
-max-width:95%;
-padding:16px 20px;
-border:none;
-border-radius:14px;
-outline:none;
-font-size:16px;
-}
-
-.section-title{
-margin:60px 0 25px;
-font-size:1.8rem;
-font-weight:600;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-border:1px solid rgba(255,255,255,0.12);
-padding:25px;
-border-radius:18px;
-transition:0.3s;
-cursor:pointer;
-text-align:center;
-}
-
-.card:hover{
-transform:translateY(-5px);
-background:rgba(255,255,255,0.12);
-}
-
-.card a{
-color:white;
-text-decoration:none;
-font-size:18px;
-font-weight:600;
-display:block;
-}
-
-.card span{
-display:block;
-margin-top:8px;
-font-size:13px;
-color:#9fb4d3;
-}
-
-.tools{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:20px;
-margin-bottom:60px;
-}
-
-.tool{
-background:rgba(255,255,255,0.08);
-padding:25px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.12);
-}
-
-.tool h3{
-margin-bottom:10px;
-}
-
-.tool p{
-font-size:14px;
-color:#b7c4d8;
-}
-
-footer{
-text-align:center;
-padding:30px;
-color:#8ea6c7;
-}
-
-.badge{
-display:inline-block;
-background:#00b4ff;
-padding:8px 14px;
-border-radius:30px;
-margin-bottom:15px;
-font-size:13px;
-font-weight:600;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-font-size:2rem;
-}
-
-.section-title{
-font-size:1.5rem;
-}
-
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:linear-gradient(135deg,#08111f,#102b4d);color:#fff}
+.container{width:92%;max-width:1300px;margin:auto}
+.hero{text-align:center;padding:70px 20px}
+.hero h1{font-size:3rem}
+.hero p{margin-top:10px;color:#c6d2e2}
+.search{display:flex;justify-content:center;margin:30px 0}
+.search input{width:600px;max-width:95%;padding:15px;border:none;border-radius:12px}
+.section{margin:40px 0}
+.section h2{margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card,.tool-card{background:rgba(255,255,255,.08);padding:20px;border-radius:16px;border:1px solid rgba(255,255,255,.12)}
+.card{cursor:pointer}
+.card:hover,.tool-card:hover{transform:translateY(-4px);transition:.2s}
+.tool-card{text-decoration:none;color:#fff;display:block}
+.tool-card p{margin-top:8px;color:#c6d2e2;font-size:14px}
+footer{text-align:center;padding:30px;color:#b7c4d8}
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
-<section class="hero">
-
-<div class="badge">
-🚢 Logistics Directory
+<div class="hero">
+<h1>🚢 Freight Compass</h1>
+<p>Navigate Global Shipping with Confidence</p>
+<div class="search">
+<input id="searchInput" placeholder="Search shipping line...">
+</div>
 </div>
 
-<h1>Ocean Tracking Hub</h1>
-
-<p>
-Quick access to official tracking portals of major global and regional shipping lines.
-No middlemen. No fake tracking. Direct access to official carrier websites.
-</p>
-
-<div class="search-box">
-<input
-type="text"
-id="searchInput"
-placeholder="Search shipping line..."
->
-</div>
-
-</section>
-
-<h2 class="section-title">Shipping Lines</h2>
-
+<div class="section">
+<h2>Shipping Lines</h2>
 <div class="grid" id="shippingGrid"></div>
+</div>
 
-<h2 class="section-title">Coming Soon</h2>
+<div class="section">
+<h2>📦 Tools & Resources</h2>
 
-<div class="tools">
+<div class="grid">
 
-<div class="tool">
-<h3>📦 Container Prefix Lookup</h3>
+<a class="tool-card" href="prefix-lookup.html">
+<h3>📋 Container Prefix Lookup</h3>
 <p>Identify carrier using container prefix.</p>
-</div>
+</a>
 
-<div class="tool">
-<h3>📐 CBM Calculator</h3>
-<p>Calculate cargo volume instantly.</p>
-</div>
+<a class="tool-card" href="freight-calculator.html">
+<h3>📐 Freight Calculator</h3>
+<p>CBM, Air Cargo and Courier calculations.</p>
+</a>
 
-<div class="tool">
-<h3>⚖️ Volumetric Weight Calculator</h3>
-<p>Air & sea freight calculations.</p>
-</div>
+<a class="tool-card" href="container-utilization.html">
+<h3>📦 Container Utilization Calculator</h3>
+<p>Calculate container space usage.</p>
+</a>
 
-<div class="tool">
+<a class="tool-card" href="incoterms.html">
 <h3>🌍 Incoterms Guide</h3>
 <p>FOB, CIF, EXW and more.</p>
-</div>
+</a>
 
-<div class="tool">
+<a class="tool-card" href="glossary.html">
 <h3>📖 Freight Glossary</h3>
 <p>Shipping terminology explained.</p>
-</div>
+</a>
 
-<div class="tool">
+<a class="tool-card" href="check-digit.html">
 <h3>🧮 Container Check Digit Tool</h3>
 <p>Validate container numbers.</p>
-</div>
+</a>
 
 </div>
-
-<footer>
-© 2026 Ocean Tracking Hub
-</footer>
+</div>
 
 </div>
 
 <script>
-
-const shippingLines = [
-
+const shippingLines=[
 {name:"MSC",url:"https://www.msc.com/en/track-a-shipment"},
 {name:"Maersk",url:"https://www.maersk.com/tracking"},
 {name:"CMA CGM",url:"https://www.cma-cgm.com/ebusiness/tracking"},
@@ -248,53 +96,118 @@ const shippingLines = [
 {name:"Wan Hai",url:"https://www.wanhai.com"},
 {name:"ZIM",url:"https://www.zim.com/tools/track-a-shipment"},
 {name:"HMM",url:"https://www.hmm21.com"},
-{name:"KMTC",url:"https://www.ekmtc.com/index.html#/main"},
+{name:"KMTC",url:"https://www.kmtc.co.kr"},
 {name:"ANL",url:"https://www.anl.com.au"},
 {name:"Gold Star Line",url:"https://www.goldstarline.com"},
 {name:"Interasia",url:"https://www.interasia.cc"},
 {name:"Transasia",url:"https://www.transasiashipping.com"},
-{name:"Samudera",url:"https://ssl-cts.samudera.id:3000/"},
+{name:"Samudera",url:"https://www.samudera.id"},
 {name:"Tropical Shipping",url:"https://www.tropical.com"},
 {name:"Econship",url:"https://www.econship.net"}
-
 ];
 
-const shippingGrid = document.getElementById("shippingGrid");
-
-function renderLines(filter=""){
-
-shippingGrid.innerHTML="";
-
-shippingLines
-.filter(line =>
-line.name.toLowerCase().includes(filter.toLowerCase())
-)
-.forEach(line => {
-
-shippingGrid.innerHTML += `
-<div class="card">
-<a href="${line.url}" target="_blank">
-${line.name}
-</a>
-<span>Open Official Tracking</span>
-</div>
-`;
-
+function render(f=""){
+const g=document.getElementById('shippingGrid');
+g.innerHTML='';
+shippingLines.filter(x=>x.name.toLowerCase().includes(f.toLowerCase())).forEach(x=>{
+g.innerHTML+=`<div class="card" onclick="window.open('${x.url}','_blank')">${x.name}</div>`;
 });
+}
+render();
+document.getElementById('searchInput').addEventListener('input',e=>render(e.target.value));
+</script>
 
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div class="footer-section">
+<h3>🚢 Freight Compass</h3>
+<p>
+Your logistics toolkit for shipping lines,
+freight calculations and industry resources.
+</p>
+</div>
+
+<div class="footer-section">
+<h3>Tools</h3>
+<a href="freight-calculator.html">Freight Calculator</a>
+<a href="prefix-lookup.html">Prefix Lookup</a>
+<a href="container-utilization.html">Container Utilization</a>
+<a href="check-digit.html">Check Digit Tool</a>
+</div>
+
+<div class="footer-section">
+<h3>Resources</h3>
+<a href="incoterms.html">Incoterms Guide</a>
+<a href="glossary.html">Freight Glossary</a>
+</div>
+
+<div class="footer-section">
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a>
+<a href="#">Disclaimer</a>
+<a href="#">Contact</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Freight Compass | Built for Freight Forwarders, Importers & Exporters
+</div>
+
+</footer>
+
+<style>
+
+.footer{
+margin-top:70px;
+background:rgba(255,255,255,.05);
+border-top:1px solid rgba(255,255,255,.12);
+padding:40px 20px 15px;
 }
 
-renderLines();
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
 
-document
-.getElementById("searchInput")
-.addEventListener("input",function(){
+.footer-section h3{
+margin-bottom:15px;
+color:white;
+}
 
-renderLines(this.value);
+.footer-section p{
+color:#d8e3f1;
+line-height:1.8;
+}
 
-});
+.footer-section a{
+display:block;
+color:#d8e3f1;
+text-decoration:none;
+margin:8px 0;
+transition:.2s;
+}
 
-</script>
+.footer-section a:hover{
+padding-left:5px;
+color:white;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#c6d2e2;
+font-size:14px;
+}
+
+</style>
 
 </body>
 </html>
