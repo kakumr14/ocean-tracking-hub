@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Freight Calculator | Freight Compass</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#08111f,#102b4d);
+color:white;
+min-height:100vh;
+}
+
+.container{
+width:92%;
+max-width:1000px;
+margin:auto;
+padding:30px 0;
+}
+
+.nav{
+margin-bottom:30px;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+background:rgba(255,255,255,.1);
+padding:10px 15px;
+border-radius:10px;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#c6d2e2;
+margin-bottom:30px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.12);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:rgba(255,255,255,.08);
+border-radius:10px;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+<a href="index.html">← Back to Home</a>
+</div>
+
+<h1>📦 Freight Calculator</h1>
+<p class="subtitle">
+CBM, Air Cargo Volume Weight and Courier Calculations
+</p>
+
+<div class="card">
+
+<select id="calcType">
+<option value="cbm">CBM Calculator</option>
+<option value="cargo">Air Cargo Volume Weight (6000)</option>
+<option value="fedex">Courier/FedEx Volume Weight (5000)</option>
+</select>
+
+<input type="number" id="length" placeholder="Length (cm)">
+<input type="number" id="width" placeholder="Width (cm)">
+<input type="number" id="height" placeholder="Height (cm)">
+<input type="number" id="qty" placeholder="Quantity">
+
+<button onclick="calculateFreight()">
+Calculate
+</button>
+
+<div class="result" id="result">
+Enter values and click Calculate.
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function calculateFreight(){
+
+let l=parseFloat(document.getElementById("length").value);
+let w=parseFloat(document.getElementById("width").value);
+let h=parseFloat(document.getElementById("height").value);
+let q=parseFloat(document.getElementById("qty").value);
+
+if(isNaN(l)||isNaN(w)||isNaN(h)||isNaN(q)){
+document.getElementById("result").innerHTML=
+"Please enter all values.";
+return;
+}
+
+let type=document.getElementById("calcType").value;
+
+if(type==="cbm"){
+
+let cbm=(l*w*h*q)/1000000;
+
+document.getElementById("result").innerHTML=
+"📦 CBM: <b>"+cbm.toFixed(3)+" m³</b>";
+
+}
+
+else if(type==="cargo"){
+
+let vw=(l*w*h*q)/6000;
+
+document.getElementById("result").innerHTML=
+"✈️ Air Cargo Volume Weight: <b>"+vw.toFixed(2)+" kg</b>";
+
+}
+
+else{
+
+let vw=(l*w*h*q)/5000;
+
+document.getElementById("result").innerHTML=
+"📮 Courier/FedEx Volume Weight: <b>"+vw.toFixed(2)+" kg</b>";
+
+}
+
+}
+
+</script>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div class="footer-section">
+<h3>🚢 Freight Compass</h3>
+<p>
+Your logistics toolkit for shipping lines,
+freight calculations and industry resources.
+</p>
+</div>
+
+<div class="footer-section">
+<h3>Tools</h3>
+<a href="freight-calculator.html">Freight Calculator</a>
+<a href="prefix-lookup.html">Prefix Lookup</a>
+<a href="container-utilization.html">Container Utilization</a>
+<a href="check-digit.html">Check Digit Tool</a>
+</div>
+
+<div class="footer-section">
+<h3>Resources</h3>
+<a href="incoterms.html">Incoterms Guide</a>
+<a href="glossary.html">Freight Glossary</a>
+</div>
+
+<div class="footer-section">
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a>
+<a href="#">Disclaimer</a>
+<a href="#">Contact</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Freight Compass | Built for Freight Forwarders, Importers & Exporters
+</div>
+
+</footer>
+
+<style>
+
+.footer{
+margin-top:70px;
+background:rgba(255,255,255,.05);
+border-top:1px solid rgba(255,255,255,.12);
+padding:40px 20px 15px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-section h3{
+margin-bottom:15px;
+color:white;
+}
+
+.footer-section p{
+color:#d8e3f1;
+line-height:1.8;
+}
+
+.footer-section a{
+display:block;
+color:#d8e3f1;
+text-decoration:none;
+margin:8px 0;
+transition:.2s;
+}
+
+.footer-section a:hover{
+padding-left:5px;
+color:white;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#c6d2e2;
+font-size:14px;
+}
+
+</style>
+
+</body>
+</html>
+

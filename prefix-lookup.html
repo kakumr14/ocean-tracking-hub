@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Container Prefix Lookup | Freight Compass</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#08111f,#102b4d);
+color:white;
+min-height:100vh;
+}
+
+.container{
+width:92%;
+max-width:900px;
+margin:auto;
+padding:30px 0;
+}
+
+.nav{
+margin-bottom:30px;
+}
+
+.nav a{
+color:white;
+text-decoration:none;
+background:rgba(255,255,255,.1);
+padding:10px 15px;
+border-radius:10px;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.subtitle{
+color:#c6d2e2;
+margin-bottom:30px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+padding:25px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.12);
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:10px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.result{
+margin-top:20px;
+padding:15px;
+background:rgba(255,255,255,.08);
+border-radius:10px;
+font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="nav">
+<a href="index.html">← Back to Home</a>
+</div>
+
+<h1>🔍 Container Prefix Lookup</h1>
+<p class="subtitle">
+Find the shipping line from a container prefix.
+</p>
+
+<div class="card">
+
+<input
+type="text"
+id="prefix"
+placeholder="Enter Prefix (Example: MSCU)"
+>
+
+<button onclick="lookupPrefix()">
+Search
+</button>
+
+<div class="result" id="result">
+Enter a prefix and click Search.
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const prefixes = {
+
+MSCU:"MSC",
+MAEU:"Maersk",
+WHLU:"Wan Hai",
+OOLU:"OOCL",
+YMLU:"Yang Ming",
+HLCU:"Hapag-Lloyd",
+ZIMU:"ZIM",
+CMDU:"CMA CGM",
+EGLV:"Evergreen",
+ONEY:"ONE"
+
+};
+
+function lookupPrefix(){
+
+let value =
+document.getElementById("prefix")
+.value
+.toUpperCase()
+.trim();
+
+if(prefixes[value]){
+
+document.getElementById("result").innerHTML =
+"🚢 Carrier: <b>" + prefixes[value] + "</b>";
+
+}else{
+
+document.getElementById("result").innerHTML =
+"❌ Prefix not found.";
+
+}
+
+}
+
+</script>
+
+<footer class="footer">
+
+<div class="footer-grid">
+
+<div class="footer-section">
+<h3>🚢 Freight Compass</h3>
+<p>
+Your logistics toolkit for shipping lines,
+freight calculations and industry resources.
+</p>
+</div>
+
+<div class="footer-section">
+<h3>Tools</h3>
+<a href="freight-calculator.html">Freight Calculator</a>
+<a href="prefix-lookup.html">Prefix Lookup</a>
+<a href="container-utilization.html">Container Utilization</a>
+<a href="check-digit.html">Check Digit Tool</a>
+</div>
+
+<div class="footer-section">
+<h3>Resources</h3>
+<a href="incoterms.html">Incoterms Guide</a>
+<a href="glossary.html">Freight Glossary</a>
+</div>
+
+<div class="footer-section">
+<h3>Legal</h3>
+<a href="#">Privacy Policy</a>
+<a href="#">Disclaimer</a>
+<a href="#">Contact</a>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Freight Compass | Built for Freight Forwarders, Importers & Exporters
+</div>
+
+</footer>
+
+<style>
+
+.footer{
+margin-top:70px;
+background:rgba(255,255,255,.05);
+border-top:1px solid rgba(255,255,255,.12);
+padding:40px 20px 15px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.footer-section h3{
+margin-bottom:15px;
+color:white;
+}
+
+.footer-section p{
+color:#d8e3f1;
+line-height:1.8;
+}
+
+.footer-section a{
+display:block;
+color:#d8e3f1;
+text-decoration:none;
+margin:8px 0;
+transition:.2s;
+}
+
+.footer-section a:hover{
+padding-left:5px;
+color:white;
+}
+
+.footer-bottom{
+text-align:center;
+margin-top:30px;
+padding-top:15px;
+border-top:1px solid rgba(255,255,255,.08);
+color:#c6d2e2;
+font-size:14px;
+}
+
+</style>
+
+</body>
+</html>
+
